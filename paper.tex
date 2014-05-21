@@ -1,0 +1,175 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+
+\usepackage{times,url}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{rotating}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{usenix,epsfig,endnotes}
+
+\usepackage[sort]{cite}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\def\Section {\S}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+%,xcolor,rotating,graphicx,graphics,url,epsfig,
+%amsfonts,algpseudocode,xspace,amsmath,amssymb,fancyvrb,fixltx2e
+
+%%% format things for making pretty tables using booktabs package
+%\usepackage{multirow}
+%\usepackage{booktabs}
+%\setlength{\heavyrulewidth}{0.10em}
+%\setlength{\lightrulewidth}{0.05em}
+%\setlength{\cmidrulewidth}{\lightrulewidth}
+%\setlength{\cmidrulekern}{0em}%
+%
+%\let\oldthebibliography=\thebibliography
+%\let\endoldthebibliography=\endthebibliography
+%\renewenvironment{thebibliography}[1]{%
+%\begin{oldthebibliography}{#1}%
+%\setlength{\itemsep}{-.3ex}%
+%}%
+%{%
+%\end{oldthebibliography}%
+%}
+
+%\textfloatsep 10pt plus 3pt minus 2pt   % Space between main text and floats
+
+%\newcommand{\squishlist}{
+%   \begin{list}{$\bullet$}
+%    { \setlength{\itemsep}{0pt}      \setlength{\parsep}{3pt}
+%      \setlength{\topsep}{3pt}       \setlength{\partopsep}{0pt}
+%      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+%      \setlength{\labelsep}{0.5em} } }
+%
+%\newcommand{\squishlisttwo}{
+%   \begin{list}{$\bullet$}
+%    { \setlength{\itemsep}{0pt}    \setlength{\parsep}{0pt}
+%      \setlength{\topsep}{0pt}     \setlength{\partopsep}{0pt}
+%      \setlength{\leftmargin}{2em} \setlength{\labelwidth}{1.5em}
+%      \setlength{\labelsep}{0.5em} } }
+%
+%\newcommand{\squishend}{
+%    \end{list}  }
+%
+%
+%\def\compactify{\itemsep=2pt \topsep=3pt \partopsep=1pt \parsep=1pt \leftmargin=1.5em}
+%\let\latexusecounter=\use counter
+%\newenvironment{CompactEnumerate}
+%  {\def\usecounter{\compactify\latexusecounter}
+%   \begin{enumerate}}
+%   {\end{enumerate}\let\usecounter=\latexusecounter}
+%\newenvironment{CompactItemize}
+%   {\def\usecounter{\compactify\latexusecounter}
+%   \begin{itemize}}
+%   {\end{itemize}\let\usecounter=\latexusecounter}
+%
+
+% Macros:
+\newcommand{\ie}{{\it i.e.}}
+\newcommand{\eg}{{\it e.g.}}
+\newcommand{\cf}{{\it cf.}}
+\newcommand{\etc}{{\it etc.}}
+\newcommand{\viz}{{\it viz.}}
+\newcommand{\apriori}{{\it a priori}}
+\newcommand{\eat}[1]{}
+
+% Notes:
+\newcommand{\num}[1]{{\color{red}\bf {#1}}}
+
+\newcommand{\barath}[1]{{\color{red}\bf BR: {#1}}}
+\newcommand{\adam}[1]{{\color{blue}\bf ARL: {#1}}}
+
+%\newcommand{\barath}[1]{}
+
+% Signed quotes:
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil(#1)%
+    \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}}
+    {\signed{\usebox\mybox}\end{quote}}
+
+\sloppy
+\begin{document}
+
+% \title{Getting The Word Out In a Blackout With Rangzen}
+\title{Rangzen:~Anonymously~Getting~The~Word~Out~In~a~Blackout}
+
+\author{Paper \#475}
+
+%% \numberofauthors{4}
+%% \author{
+%% \alignauthor Giulia Fanti \\[0.5ex]
+%% \affaddr{UC Berkeley\\fanti@eecs.berkeley.edu}
+%% \alignauthor Adam Lerner \\[0.5ex]
+%% \affaddr{University of Washington and De Novo Group\\lerner@washington.edu}
+%% \alignauthor Yahel Ben-David \\[0.5ex]
+%% \affaddr{UC Berkeley and De Novo Group\\yahel@eecs.berkeley.edu}
+%% \alignauthor Barath Raghavan\\[0.5ex]
+%% \affaddr{ICSI and De Novo Group\\barath@icsi.berkeley.edu}
+%% }
+
+   \date{}
+   \maketitle
+   \thispagestyle{empty}
+
+\abstract{{\it \input{abstract}}}
+
+\section{Introduction}
+\label{sec:introduction}
+\input{introduction}
+
+\section{Background}
+\label{sec:background}
+\input{background}
+
+\section{System}
+\label{sec:system}
+\input{system}
+
+\section{Results}
+\label{sec:results}
+\input{results}
+
+\section{Evaluation}
+\label{sec:evaluation}
+\input{evaluation}
+
+\section{Discussion}
+\label{sec:discussion}
+\input{discussion}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\input{conclusion}
+
+\bibliographystyle{abbrv}
+{
+  \small
+  \bibliography{paper}
+}
+
+%\appendix
+
+\end{document}
